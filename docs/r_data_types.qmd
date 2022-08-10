@@ -46,5 +46,3 @@ max_count <- max(df_1$count)
 max_count
 
 ```
-
-#based on species of vertebrates: df %\>% filter(species = "dog")
