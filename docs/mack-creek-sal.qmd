@@ -1,0 +1,35 @@
+---
+title: "Wild Data"
+format: html
+editor: visual
+execute: 
+  warning: false
+  messages: false
+---
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+
+```
+
+Read in data
+
+```{r}
+mack_verts <- read_csv(here("data", "AS00601.csv")) %>% clean_names
+```
+
+Data wrangling
+
+```{r}
+mc_wt_5 <- mack_verts$weight[5]
+mc_length_8_20 <- mack_verts$length1[8:20]
+mc_dates <- c(mack_verts$sampledate)
+
+# Make a salamander subset
+# Example: based on species of vertebrates: df %>% filter(species = "dog")
+# mc_salamanders <- df %>% dplyr::filter(species = "dite") ??
+mc_salamanders <- mack_verts %>% filter(species == "DITE")
+class(mack_verts)
+```
